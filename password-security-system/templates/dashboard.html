@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+color:white;
+text-align:center;
+min-height:100vh;
+
+/* DARK BACKGROUND */
+background:linear-gradient(135deg,#141e30,#48505a);
+}
+
+h1{
+margin-top:40px;
+font-size:40px;
+letter-spacing:1px;
+}
+
+/* CONTAINER */
+.grid{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:25px;
+margin:40px auto;
+}
+
+/* GLASS EFFECT CARD */
+.box{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+padding:25px;
+border-radius:15px;
+width:320px;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+transition:0.4s;
+
+/* ANIMATION */
+opacity:0;
+transform:translateY(40px);
+animation:slideUp 0.6s ease forwards;
+}
+
+/* DELAY FOR EACH CARD */
+.box:nth-child(1){animation-delay:0.1s;}
+.box:nth-child(2){animation-delay:0.2s;}
+.box:nth-child(3){animation-delay:0.3s;}
+.box:nth-child(4){animation-delay:0.4s;}
+.box:nth-child(5){animation-delay:0.5s;}
+
+@keyframes slideUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* HOVER EFFECT */
+.box:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #00e6e6;
+}
+
+/* LINK STYLE */
+.box a{
+text-decoration:none;
+color:white;
+font-size:20px;
+font-weight:bold;
+display:block;
+}
+
+/* ICON STYLE */
+.icon{
+font-size:30px;
+display:block;
+margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Dashboard</h1>
+
+<div class="grid">
+
+<div class="box">
+<span class="icon">🔐</span>
+<a href="/analyser">Password Analyser</a>
+</div>
+
+<div class="box">
+<span class="icon">⚡</span>
+<a href="/generator">Password Generator</a>
+</div>
+
+<div class="box">
+<span class="icon">🛡️</span>
+<a href="/breach">Breach Checker</a>
+</div>
+
+<div class="box">
+<span class="icon">📘</span>
+<a href="/tips">Security Tips</a>
+</div>
+
+<div class="box">
+<span class="icon">⬅️</span>
+<a href="/">Back to Home</a>
+</div>
+
+</div>
+
+</body>
+</html>

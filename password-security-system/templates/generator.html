@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Password Generator</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+color:white;
+text-align:center;
+min-height:100vh;
+
+/* DARK PREMIUM GRADIENT */
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+}
+
+/* INPUT BOX */
+input{
+padding:12px;
+width:300px;
+margin:20px;
+border-radius:8px;
+border:none;
+font-size:18px;
+text-align:center;
+outline:none;
+}
+
+/* BUTTON STYLE */
+button{
+padding:10px 20px;
+margin:10px;
+border-radius:8px;
+border:none;
+font-size:16px;
+cursor:pointer;
+background:#00e6e6;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+background:#00baba;
+box-shadow:0 0 10px #00e6e6;
+}
+
+/* GLOW BACKGROUND */
+.bg-glow{
+position:fixed;
+width:400px;
+height:400px;
+background:rgba(0,255,255,0.08);
+border-radius:50%;
+filter:blur(120px);
+z-index:-1;
+}
+
+.glow1{
+top:10%;
+left:15%;
+}
+
+.glow2{
+bottom:10%;
+right:15%;
+}
+
+/* CONTAINER */
+.container{
+margin-top:80px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-glow glow1"></div>
+<div class="bg-glow glow2"></div>
+
+<div class="container">
+
+<h1>Password Generator</h1>
+
+<input type="text" id="generatedPassword" placeholder="Generated password will appear here" readonly>
+
+<br>
+
+<button onclick="generatePassword()">Generate Password</button>
+
+<button onclick="copyPassword()">Copy Password</button>
+
+<br><br>
+
+<a href="/dashboard">
+<button>⬅ Back to Dashboard</button>
+</a>
+
+</div>
+
+<script>
+
+function generatePassword(){
+
+let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+
+let password = "";
+
+for(let i=0;i<12;i++){
+password += chars.charAt(Math.floor(Math.random()*chars.length));
+}
+
+document.getElementById("generatedPassword").value = password;
+
+}
+
+function copyPassword(){
+
+let passwordField = document.getElementById("generatedPassword");
+
+passwordField.select();
+passwordField.setSelectionRange(0,99999);
+
+navigator.clipboard.writeText(passwordField.value);
+
+alert("Password Copied!");
+
+}
+
+</script>
+
+</body>
+</html>
